@@ -18,11 +18,11 @@ app.use((req, res, next) => {
 	});
 	next();
 });
-
+/*
 app.use((req, res, next) =>{
 	res.render('maintance.hbs');
 });
-
+*/
 app.use(express.static(__dirname + '/public'));
 
 hbs.registerHelper('getCurrentYear', () => {
@@ -45,6 +45,12 @@ app.get('/', (req, res) => {
 		pageTitle: 'Home Page',
 		welcomeMessage: 'Welcome Message'
 	})
+});
+
+app.get('/projects', (req, res) =>{
+	res.render('projects.hbs', {
+		pageTitle: 'Projects'
+	});
 });
 
 app.get('/about', (req, res) => {
